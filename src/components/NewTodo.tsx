@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-const NewTodo = () => {
+const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 	const todoTextInputRef = useRef<HTMLInputElement>(null); //useRef as a generic, it needs a type to be applied in the input, it also needs a default value (even null)
 
 	//we need to specify the type of the event -> form, mouse, etc
@@ -14,6 +14,9 @@ const NewTodo = () => {
 			throw new Error("Value can't be emtpy");
 			return;
 		}
+
+		//getting a function prop
+		props.onAddTodo(enteredText);
 	};
 
 	return (
