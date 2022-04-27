@@ -3,6 +3,7 @@ body {
 	padding: 0;
 	background-color: rgb(14, 14, 14);
 	color: rgb(245, 204, 170);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
