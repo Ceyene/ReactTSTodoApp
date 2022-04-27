@@ -32,6 +32,7 @@ const NewTodo: React.FC = () => {
 			</label>
 			<input type="text" id="text" ref={todoTextInputRef} />
 			<button>Add Task</button>
+			<p>(You can remove a task by clicking on it)</p>
 		</form>
 	);
 };
