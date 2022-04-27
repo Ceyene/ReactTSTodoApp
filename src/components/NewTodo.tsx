@@ -1,9 +1,12 @@
 //dependencies
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
+import { TodosContext } from '../store/todos-context';
 //assets
 import classes from './NewTodo.module.css';
 
-const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
+const NewTodo: React.FC = () => {
+	const todosCtx = useContext(TodosContext); //using context
+
 	const todoTextInputRef = useRef<HTMLInputElement>(null); //useRef as a generic, it needs a type to be applied in the input, it also needs a default value (even null)
 
 	//we need to specify the type of the event -> form, mouse, etc
@@ -19,7 +22,7 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 		}
 
 		//getting a function prop
-		props.onAddTodo(enteredText);
+		todosCtx.addTodo(enteredText);
 	};
 
 	return (
