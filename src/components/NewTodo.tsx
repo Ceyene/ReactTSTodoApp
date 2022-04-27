@@ -1,3 +1,4 @@
+//dependencies
 import React, { useRef } from 'react';
 
 const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {

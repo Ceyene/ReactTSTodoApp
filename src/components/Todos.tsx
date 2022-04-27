@@ -1,5 +1,8 @@
+//dependencies
 import React from 'react';
+//data model
 import Todo from '../models/todo';
+//components
 import TodoItem from './TodoItem';
 
 const Todos: React.FC<{ items: Todo[] }> = (props) => {
