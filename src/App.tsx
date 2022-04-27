@@ -9,7 +9,7 @@ import NewTodo from './components/NewTodo';
 function App() {
 	const [todos, setTodos] = useState<Todo[]>([]); //you need to specify type and a default value
 
-	//form handler
+	//form handlers
 	const addTodoHandler = (todoText: string) => {
 		const newTodo = new Todo(todoText);
 
@@ -17,11 +17,16 @@ function App() {
 			return prevTodos.concat(newTodo);
 		});
 	};
+	const removeTodoHandler = (todoId: string) => {
+		setTodos((prevTodos) => {
+			return prevTodos.filter((todo) => todo.id !== todoId);
+		});
+	};
 
 	return (
 		<div>
 			<NewTodo onAddTodo={addTodoHandler} />
-			<Todos items={todos} />
+			<Todos items={todos} onRemoveTodo={removeTodoHandler} />
 		</div>
 	);
 }
