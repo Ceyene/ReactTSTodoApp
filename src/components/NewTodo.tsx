@@ -1,5 +1,7 @@
 //dependencies
 import React, { useRef } from 'react';
+//assets
+import classes from './NewTodo.module.css';
 
 const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 	const todoTextInputRef = useRef<HTMLInputElement>(null); //useRef as a generic, it needs a type to be applied in the input, it also needs a default value (even null)
@@ -12,7 +14,7 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 		// --> ! use it if you are 100% sure that the value won't be null when executing this line of code
 		//checking if entered value is empty and throwing an error
 		if (enteredText.trim().length === 0) {
-			throw new Error("Value can't be emtpy");
+			alert("Value can't be emtpy");
 			return;
 		}
 
@@ -21,10 +23,12 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
 	};
 
 	return (
-		<form onSubmit={submitHandler}>
-			<label htmlFor="text">Todo Text</label>
+		<form onSubmit={submitHandler} className={classes.form}>
+			<label htmlFor="text">
+				Use me as a reminder of pending tasks in your day...
+			</label>
 			<input type="text" id="text" ref={todoTextInputRef} />
-			<button>Add Todo</button>
+			<button>Add Task</button>
 		</form>
 	);
 };
